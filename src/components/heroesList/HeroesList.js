@@ -2,8 +2,9 @@ import {useHttp} from '../../hooks/http.hook';
 import { useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { heroesFetching, heroesFetched, heroesFetchingError, heroDeleted } from '../../actions';
+import { heroesFetching, heroesFetched, heroesFetchingError, heroDeleted, heroAdded } from '../../actions';
 import HeroesListItem from "../heroesListItem/HeroesListItem";
+import HeroesAddForm from '../heroesAddForm/HeroesAddForm';
 import Spinner from '../spinner/Spinner';
 
 // Задача для этого компонента:
@@ -27,8 +28,15 @@ const HeroesList = () => {
 
     const onDelete = useCallback((id) => {
         request(`http://localhost:3001/heroes/${id}`, 'DELETE')
-            .then(data => console.log(data, 'deleted'))
+            // .then(data => console.log(data, 'deleted'))
             .then(dispatch(heroDeleted(id)))            
+            .catch(err => console.error(err))
+    }, [request]);
+
+    const onAdd = useCallback((id) => {
+        request(`http://localhost:3001/heroes/${id}`, 'PUT')
+            .then(data => console.log(data, 'added'))
+            .then(dispatch(heroAdded(id)))
             .catch(err => console.error(err))
     }, [request]);
 
@@ -45,19 +53,20 @@ const HeroesList = () => {
         }
 
         return arr.map(({id, ...props}) => {
-            return <HeroesListItem 
-                            key={id} 
-                            {...props}
-                            onDelete={() => onDelete(id)}/>
+            return <HeroesListItem key={id} {...props} onDelete={() => onDelete(id)}/>    
         })
     }
 
     const elements = renderHeroesList(heroes);
 
+    const newElement = ({id, ...props}) => {
+        return <HeroesAddForm key={id} {...props} onAdd={() => onAdd(id)}/>
+    }
 
     return (
         <ul>
             {elements}
+            {newElement}
         </ul>
     )
 }
