@@ -33,10 +33,10 @@ const HeroesList = () => {
             .catch(err => console.error(err))
     }, [request]);
 
-    const onAdd = useCallback((id) => {
-        request(`http://localhost:3001/heroes/${id}`, 'PUT')
+    const onAdd = useCallback(() => {
+        request('http://localhost:3001/heroes', 'POST')
             .then(data => console.log(data, 'added'))
-            .then(dispatch(heroAdded(id)))
+            .then(data => dispatch(heroAdded(data)))
             .catch(err => console.error(err))
     }, [request]);
 
@@ -53,20 +53,15 @@ const HeroesList = () => {
         }
 
         return arr.map(({id, ...props}) => {
-            return <HeroesListItem key={id} {...props} onDelete={() => onDelete(id)}/>    
+            return <HeroesListItem key={id} {...props} onDelete={() => onDelete(id)} />    
         })
     }
 
     const elements = renderHeroesList(heroes);
 
-    const newElement = ({id, ...props}) => {
-        return <HeroesAddForm key={id} {...props} onAdd={() => onAdd(id)}/>
-    }
-
     return (
         <ul>
             {elements}
-            {newElement}
         </ul>
     )
 }

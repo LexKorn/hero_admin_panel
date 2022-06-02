@@ -8,38 +8,47 @@
 // Элементы <option></option> желательно сформировать на базе
 // данных из фильтров
 
+
+import { useDispatch } from 'react-redux';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import {v4 as uuidv4} from 'uuid';
 
+import { useHttp } from '../../hooks/http.hook';
+import { heroAdded } from '../../actions';
+
 import './heroesAddForm.sass';
 
 
-const HeroesAddForm = ({onAdd}) => {
+const HeroesAddForm = () => {
+    const {request} = useHttp();
+    const dispatch = useDispatch();
+
     return (
         <Formik
             initialValues={{
+                // id: uuidv4(),
+                id: '',
                 name: '',
-                text: '',
+                description: '',
                 element: ''
             }}
             validationSchema ={Yup.object({
                 name: Yup.string()
                         .required("Обязательное поле")
                         .min(2, "Минимум 2 символа"),
-                text: Yup.string()
+                description: Yup.string()
                         .required("Обязательное поле")
                         // .min(10, "Минимум 10 символов")
             })}
-            // onSubmit={(values, {resetForm}) => {
-            //     console.log(JSON.stringify(values, null, 2));
-            //     console.log(values);
-            //     console.log(values.name);
-            //     console.log(values.name.getAttribute('id'));
-            //     resetForm();
-            // }} 
-            onSubmit={onAdd}
-            >
+            onSubmit={(values, {resetForm}) => {
+                request('http://localhost:3001/heroes', 'POST', JSON.stringify(values))
+                        .then(values => console.log(values, 'added'))
+                        .then(dispatch(heroAdded(values)))
+                        .catch(err => console.error(err));
+                resetForm();
+                }                
+            }>
 
             <Form className="border p-4 shadow-lg rounded">
                 <div className="mb-3">
@@ -54,15 +63,15 @@ const HeroesAddForm = ({onAdd}) => {
                 </div>
 
                 <div className="mb-3">
-                    <label htmlFor="text" className="form-label fs-4">Описание</label>
+                    <label htmlFor="description" className="form-label fs-4">Описание</label>
                     <Field
                         as="textarea"
-                        name="text" 
+                        name="description" 
                         id={uuidv4()} 
                         className="form-control"                         
                         placeholder="Что я умею?"
                         style={{"height": '130px'}}/>
-                    <ErrorMessage className='error' name='text' component='div' />
+                    <ErrorMessage className='error' name='description' component='div' />
                 </div>
 
                 <div className="mb-3">

@@ -29,10 +29,11 @@ const reducer = (state = initialState, action) => {
                 heroes: newHeroesList
             }
         case 'HERO_ADDED':
+            const newCreatedHeroesList = [...state.heroes, action.payload]
             return {
                 ...state,
-                heroes: [...state.heroes, action.payload]
-                // heroes: action.payload
+                heroes: newCreatedHeroesList
+                // heroes: state.heroes.push(action.payload)
             }
         default: return state
     }
