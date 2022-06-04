@@ -8,15 +8,27 @@
     },
     {
       "id": 3,
-      "name": "fhbsgnaa",
-      "description": "bffb vcbvbc xv ",
-      "element": "fire"
+      "name": "fhsns",
+      "description": "dfshbzs",
+      "element": "water"
     },
     {
       "id": 4,
-      "name": "1564156v1",
-      "description": "jfnjkdnvn\nvfnlvnz",
-      "element": "water"
+      "name": "Alex",
+      "description": "hbgn c",
+      "element": "earth"
+    },
+    {
+      "id": 5,
+      "name": "Алексей",
+      "description": "титчтч",
+      "element": "Я владею элементом..."
+    },
+    {
+      "id": 6,
+      "name": "Инженер проектировщик",
+      "description": "jnghsks",
+      "element": "fire"
     }
   ],
   "filters": [

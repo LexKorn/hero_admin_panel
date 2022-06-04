@@ -37,7 +37,10 @@ const HeroesAddForm = () => {
                         .required("Обязательное поле")
                         .min(2, "Минимум 2 символа"),
                 description: Yup.string()
+                        .required("Обязательное поле"),
+                element: Yup.string()
                         .required("Обязательное поле")
+                        .max(5, "Элемент не выбран")
             })}
             onSubmit={(values, {resetForm}) => {
                 request('http://localhost:3001/heroes', 'POST', JSON.stringify(values))

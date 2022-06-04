@@ -29,8 +29,8 @@ const HeroesFilters = () => {
         // eslint-disable-next-line
     }, []);
 
-    console.log(filters);
-    console.log(activeFilter);
+    // console.log(filters);
+    // console.log(activeFilter);
 
     if (filtersLoadingStatus === "loading") {
         return <Spinner/>;
@@ -58,24 +58,7 @@ const HeroesFilters = () => {
         })       
     }
 
-    const filters2 = [{
-        "name": "all",
-        "label": "Все",
-        "className": "btn-outline-dark"
-      },
-      {
-        "name": "fire",
-        "label": "Огонь",
-        "className": "btn-danger"
-      },
-      {
-        "name": "water",
-        "label": "Вода",
-        "className": "btn-primary"
-      }]
-
     const elements = renderFilters(filters);
-
 
     return (
         <div className="card shadow-lg mt-4">
