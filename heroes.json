@@ -1,34 +1,34 @@
 {
   "heroes": [
     {
-      "id": 2,
-      "name": "Неизвестный герой",
-      "description": "Скрывающийся в тени",
-      "element": "wind"
-    },
-    {
-      "id": 3,
-      "name": "fhsns",
-      "description": "dfshbzs",
-      "element": "water"
-    },
-    {
-      "id": 4,
-      "name": "Alex",
-      "description": "hbgn c",
-      "element": "earth"
-    },
-    {
       "id": 5,
       "name": "Алексей",
       "description": "титчтч",
       "element": "Я владею элементом..."
     },
     {
-      "id": 6,
-      "name": "Инженер проектировщик",
-      "description": "jnghsks",
+      "id": 8,
+      "name": "gs",
+      "description": "gs",
       "element": "fire"
+    },
+    {
+      "id": 9,
+      "name": "fgs",
+      "description": "xcb",
+      "element": "earth"
+    },
+    {
+      "id": 10,
+      "name": "Инженер проектировщик",
+      "description": "c,",
+      "element": "wind"
+    },
+    {
+      "id": 11,
+      "name": "gnhgx",
+      "description": "ncmx",
+      "element": "wind"
     }
   ],
   "filters": [
