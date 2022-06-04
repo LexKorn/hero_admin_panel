@@ -27,7 +27,6 @@ const HeroesAddForm = () => {
     return (
         <Formik
             initialValues={{
-                // id: uuidv4(),
                 id: '',
                 name: '',
                 description: '',
@@ -39,7 +38,6 @@ const HeroesAddForm = () => {
                         .min(2, "Минимум 2 символа"),
                 description: Yup.string()
                         .required("Обязательное поле")
-                        // .min(10, "Минимум 10 символов")
             })}
             onSubmit={(values, {resetForm}) => {
                 request('http://localhost:3001/heroes', 'POST', JSON.stringify(values))
@@ -93,8 +91,7 @@ const HeroesAddForm = () => {
                 <button type="submit" className="btn btn-primary">Создать</button>
 
             </Form>
-        </Formik>
-        
+        </Formik>        
     )
 }
 

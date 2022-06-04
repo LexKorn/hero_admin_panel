@@ -1,16 +1,16 @@
-import {useHttp} from '../../hooks/http.hook';
-import { useEffect, useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-
-import { heroesFetching, heroesFetched, heroesFetchingError, heroDeleted, heroAdded } from '../../actions';
-import HeroesListItem from "../heroesListItem/HeroesListItem";
-import HeroesAddForm from '../heroesAddForm/HeroesAddForm';
-import Spinner from '../spinner/Spinner';
-
 // Задача для этого компонента:
 // При клике на "крестик" идет удаление персонажа из общего состояния
 // Усложненная задача:
 // Удаление идет и с json файла при помощи метода DELETE
+
+import { useEffect, useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import {useHttp} from '../../hooks/http.hook';
+import { heroesFetching, heroesFetched, heroesFetchingError, heroDeleted } from '../../actions';
+import HeroesListItem from "../heroesListItem/HeroesListItem";
+import Spinner from '../spinner/Spinner';
+
 
 const HeroesList = () => {
     const {heroes, heroesLoadingStatus} = useSelector(state => state);
@@ -32,14 +32,6 @@ const HeroesList = () => {
             .then(dispatch(heroDeleted(id)))            
             .catch(err => console.error(err))
     }, [request]);
-
-    const onAdd = useCallback(() => {
-        request('http://localhost:3001/heroes', 'POST')
-            .then(data => console.log(data, 'added'))
-            .then(data => dispatch(heroAdded(data)))
-            .catch(err => console.error(err))
-    }, [request]);
-
 
     if (heroesLoadingStatus === "loading") {
         return <Spinner/>;
