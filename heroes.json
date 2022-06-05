@@ -1,24 +1,6 @@
 {
   "heroes": [
     {
-      "id": 5,
-      "name": "Алексей",
-      "description": "титчтч",
-      "element": "Я владею элементом..."
-    },
-    {
-      "id": 10,
-      "name": "Инженер проектировщик",
-      "description": "c,",
-      "element": "wind"
-    },
-    {
-      "id": 11,
-      "name": "Алексей",
-      "description": "sdjfnjakhnv;",
-      "element": "water"
-    },
-    {
       "id": 12,
       "name": "lex korn",
       "description": "ikahi;o",
@@ -29,6 +11,24 @@
       "name": "Инженер проектировщик",
       "description": "nnsgx",
       "element": "fire"
+    },
+    {
+      "id": 15,
+      "name": "lex korn",
+      "description": "gshsh",
+      "element": "wind"
+    },
+    {
+      "id": 16,
+      "name": "Алексей",
+      "description": "hsrjn",
+      "element": "wind"
+    },
+    {
+      "id": 17,
+      "name": "Alex",
+      "description": "i6ykjf",
+      "element": "water"
     }
   ],
   "filters": [
