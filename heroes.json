@@ -7,18 +7,6 @@
       "element": "Я владею элементом..."
     },
     {
-      "id": 8,
-      "name": "gs",
-      "description": "gs",
-      "element": "fire"
-    },
-    {
-      "id": 9,
-      "name": "fgs",
-      "description": "xcb",
-      "element": "earth"
-    },
-    {
       "id": 10,
       "name": "Инженер проектировщик",
       "description": "c,",
@@ -26,9 +14,21 @@
     },
     {
       "id": 11,
-      "name": "gnhgx",
-      "description": "ncmx",
-      "element": "wind"
+      "name": "Алексей",
+      "description": "sdjfnjakhnv;",
+      "element": "water"
+    },
+    {
+      "id": 12,
+      "name": "lex korn",
+      "description": "ikahi;o",
+      "element": "fire"
+    },
+    {
+      "id": 13,
+      "name": "Инженер проектировщик",
+      "description": "nnsgx",
+      "element": "fire"
     }
   ],
   "filters": [
