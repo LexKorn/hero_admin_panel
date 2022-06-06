@@ -9,7 +9,7 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { createSelector } from 'reselect'
 
 import {useHttp} from '../../hooks/http.hook';
-import { heroesFetching, heroesFetched, heroesFetchingError, heroDeleted } from '../../actions';
+import { fetchHeroes, heroDeleted } from '../../actions';
 import HeroesListItem from "../heroesListItem/HeroesListItem";
 import Spinner from '../spinner/Spinner';
 
@@ -42,13 +42,19 @@ const HeroesList = () => {
     const dispatch = useDispatch();
     const {request} = useHttp();
 
+    /*
     useEffect(() => {
-        dispatch(heroesFetching());
+        dispatch(heroesFetching);
         request("http://localhost:3001/heroes")
             .then(data => dispatch(heroesFetched(data)))
             .catch(() => dispatch(heroesFetchingError()))
 
         // eslint-disable-next-line
+    }, []);
+    */
+
+    useEffect(() => {
+        dispatch(fetchHeroes(request));
     }, []);
 
     const onDelete = useCallback((id) => {

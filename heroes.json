@@ -7,12 +7,6 @@
       "element": "fire"
     },
     {
-      "id": 15,
-      "name": "lex korn",
-      "description": "gshsh",
-      "element": "wind"
-    },
-    {
       "id": 16,
       "name": "Алексей",
       "description": "hsrjn",
@@ -26,9 +20,9 @@
     },
     {
       "id": 18,
-      "name": "Alex",
-      "description": "jsjsjs",
-      "element": "water"
+      "name": "Инженер проектировщик",
+      "description": "hmxhg,xh",
+      "element": "wind"
     }
   ],
   "filters": [
