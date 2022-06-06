@@ -1,10 +1,3 @@
-// Задача для этого компонента:
-// Фильтры должны формироваться на основании загруженных данных
-// Фильтры должны отображать только нужных героев при выборе
-// Активный фильтр имеет класс active
-// Изменять json-файл для удобства МОЖНО!
-// Представьте, что вы попросили бэкенд-разработчика об этом
-
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import classNames from 'classnames';
@@ -18,21 +11,6 @@ const HeroesFilters = () => {
     const {filters, filtersLoadingStatus, activeFilter} = useSelector(state => state.filters);
     const dispatch = useDispatch();
     const {request} = useHttp();
-
-    /*
-    useEffect(() => {
-        dispatch(filtersFetching());
-        request('http://localhost:3001/filters')
-            // .then(data => console.log(data, 'filters loaded'))
-            .then(data => dispatch(filtersFetched(data)))
-            .catch(() => dispatch(filtersFetchingError()));
-        
-        // eslint-disable-next-line
-    }, []);
-    */
-
-    // console.log(filters);
-    // console.log(activeFilter);
 
     useEffect(() => {
         dispatch(fetchFilters(request));

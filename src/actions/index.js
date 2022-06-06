@@ -70,12 +70,3 @@ export const activeFilterChanged = (filter) => {
         payload: filter
     }
 }
-
-// export const activeFilterChanged = (filter) => (dispatch) => {
-//     setTimeout(() => {
-//         dispatch({
-//             type: 'ACTIVE_FILTER_CHANGED',
-//             payload: filter
-//         });
-//     }, 1000);
-// }
