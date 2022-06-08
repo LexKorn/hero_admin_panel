@@ -1,12 +1,6 @@
 {
   "heroes": [
     {
-      "id": 12,
-      "name": "lex korn",
-      "description": "ikahi;o",
-      "element": "fire"
-    },
-    {
       "id": 16,
       "name": "Алексей",
       "description": "hsrjn",
@@ -19,9 +13,15 @@
       "element": "water"
     },
     {
-      "id": 18,
+      "id": 19,
+      "name": "lex korn",
+      "description": "hsdHdA",
+      "element": "fire"
+    },
+    {
+      "id": 20,
       "name": "Инженер проектировщик",
-      "description": "hmxhg,xh",
+      "description": "ykiddd",
       "element": "wind"
     }
   ],

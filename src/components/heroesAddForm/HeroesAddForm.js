@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 import {v4 as uuidv4} from 'uuid';
 
 import { useHttp } from '../../hooks/http.hook';
-import { heroAdded } from '../../actions';
+import { heroAdded } from '../heroesList/heroesSlice';
 
 import './heroesAddForm.sass';
 
