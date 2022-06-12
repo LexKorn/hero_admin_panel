@@ -32,6 +32,7 @@ const HeroesAddForm = () => {
                         .max(5, "Элемент не выбран")
             })}
             onSubmit={(values, {resetForm}) => {
+                values.id = uuidv4();
                 request('http://localhost:3001/heroes', 'POST', JSON.stringify(values))
                         .then(values => console.log(values, 'added'))
                         .then(dispatch(heroAdded(values)))
@@ -46,7 +47,6 @@ const HeroesAddForm = () => {
                     <Field 
                         type="text" 
                         name="name" 
-                        id={uuidv4()} 
                         className="form-control"                         
                         placeholder="Как меня зовут?"/>
                     <ErrorMessage className='error' name='name' component='div' />
@@ -57,7 +57,6 @@ const HeroesAddForm = () => {
                     <Field
                         as="textarea"
                         name="description" 
-                        id={uuidv4()} 
                         className="form-control"                         
                         placeholder="Что я умею?"
                         style={{"height": '130px'}}/>
@@ -69,7 +68,6 @@ const HeroesAddForm = () => {
                     <Field 
                         as="select"
                         name="element"
-                        id={uuidv4()} 
                         className="form-select" >
                         <option >Я владею элементом...</option>
                         <option value="fire">Огонь</option>
