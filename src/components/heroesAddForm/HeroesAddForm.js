@@ -1,17 +1,14 @@
-import { useDispatch } from 'react-redux';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import {v4 as uuidv4} from 'uuid';
 
-import { useHttp } from '../../hooks/http.hook';
-import { heroAdded } from '../heroesList/heroesSlice';
+import { useAddHeroMutation } from '../../api/apiSlice';
 
 import './heroesAddForm.sass';
 
 
 const HeroesAddForm = () => {
-    const {request} = useHttp();
-    const dispatch = useDispatch();
+    const [addHero, {isLoading}] = useAddHeroMutation();
 
     return (
         <Formik
@@ -33,10 +30,7 @@ const HeroesAddForm = () => {
             })}
             onSubmit={(values, {resetForm}) => {
                 values.id = uuidv4();
-                request('http://localhost:3001/heroes', 'POST', JSON.stringify(values))
-                        .then(values => console.log(values, 'added'))
-                        .then(dispatch(heroAdded(values)))
-                        .catch(err => console.error(err));
+                addHero(values).unwrap();
                 resetForm();
                 }                
             }>
