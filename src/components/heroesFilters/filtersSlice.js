@@ -9,7 +9,7 @@ const initialState = filtersAdapter.getInitialState({
     activeFilter: 'all'
 });
 
-export const fetchFilters = createAsyncThunk(
+const fetchFilters = createAsyncThunk(
     'filters/fetchFilters',
     () => {
         const {request} = useHttp();
@@ -42,7 +42,7 @@ const {actions, reducer} = filtersSlice;
 
 export default reducer;
 
-export const {selectAll} = filtersAdapter.getSelectors(state => state.filters);
+// export const {selectAll} = filtersAdapter.getSelectors(state => state.filters);
 
 export const {
     activeFilterChanged

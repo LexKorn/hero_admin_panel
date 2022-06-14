@@ -3,22 +3,29 @@ import { useSelector, useDispatch } from 'react-redux';
 import classNames from 'classnames';
 
 import store from '../../store';
+import { useGetFitersQuery } from '../../api/apiSlice';
 import {activeFilterChanged, fetchFilters, selectAll} from './filtersSlice';
 import Spinner from '../spinner/Spinner';
 
 
 const HeroesFilters = () => {
-    const {filtersLoadingStatus, activeFilter} = useSelector(state => state.filters);
-    const filters = selectAll(store.getState());
+    const {activeFilter} = useSelector(state => state.filters);
+    // const filters = selectAll(store.getState());
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(fetchFilters());
-    }, []);
+    const {
+        data: filters = [],
+        isLoading,
+        isError
+    } = useGetFitersQuery();
 
-    if (filtersLoadingStatus === "loading") {
+    // useEffect(() => {
+    //     dispatch(fetchFilters());
+    // }, []);
+
+    if (isLoading) {
         return <Spinner/>;
-    } else if (filtersLoadingStatus === "error") {
+    } else if (isError) {
         return <h5 className="text-center mt-5">Ошибка загрузки</h5>
     }
 
