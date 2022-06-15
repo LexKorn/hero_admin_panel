@@ -1,27 +1,20 @@
-import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import classNames from 'classnames';
 
-import store from '../../store';
-import { useGetFitersQuery } from '../../api/apiSlice';
-import {activeFilterChanged, fetchFilters, selectAll} from './filtersSlice';
+import { useGetFiltersQuery } from '../../api/apiSlice';
+import {activeFilterChanged} from './filtersSlice';
 import Spinner from '../spinner/Spinner';
 
 
 const HeroesFilters = () => {
     const {activeFilter} = useSelector(state => state.filters);
-    // const filters = selectAll(store.getState());
     const dispatch = useDispatch();
 
     const {
         data: filters = [],
         isLoading,
         isError
-    } = useGetFitersQuery();
-
-    // useEffect(() => {
-    //     dispatch(fetchFilters());
-    // }, []);
+    } = useGetFiltersQuery();
 
     if (isLoading) {
         return <Spinner/>;

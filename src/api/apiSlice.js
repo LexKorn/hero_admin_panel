@@ -24,11 +24,11 @@ export const apiSlice = createApi({
             }),
             invalidatesTags: ['Heroes']
         }),
-        getFiters: builder.query({
+        getFilters: builder.query({
             query: () => '/filters',
             providesTags: ['Filters']
         })
     })
 });
 
-export const { useGetHeroesQuery, useAddHeroMutation, useDeleteHeroMutation, useGetFitersQuery } = apiSlice;
+export const { useGetHeroesQuery, useAddHeroMutation, useDeleteHeroMutation, useGetFiltersQuery } = apiSlice;

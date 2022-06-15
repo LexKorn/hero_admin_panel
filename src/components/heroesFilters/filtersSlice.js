@@ -39,10 +39,7 @@ const filtersSlice = createSlice({
 
 const {actions, reducer} = filtersSlice;
 
-
 export default reducer;
-
-// export const {selectAll} = filtersAdapter.getSelectors(state => state.filters);
 
 export const {
     activeFilterChanged
